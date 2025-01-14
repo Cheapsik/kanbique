@@ -1,0 +1,24 @@
+$primary-gradient-start: #2A2E45;
+$primary-gradient-end: #4A3F72;
+$accent-color: #D8A31E;
+
+$background-color: #1E1E2F;
+$surface-color: #2C2C3D;
+$text-color-primary: #E0E0E0;
+$text-color-secondary: #A5A5B0;
+
+$hover-active-color: #3B8F7A;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62,5%;
+}
+
+body {
+    background: linear-gradient(90deg, $primary-gradient-start, $primary-gradient-end);
+}
