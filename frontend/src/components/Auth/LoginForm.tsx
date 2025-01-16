@@ -4,6 +4,8 @@ import { useState } from "react";
 import AuthService from "./AuthService";
 import React from "react";
 import { schema } from "./utils/helpers";
+import styles from './LoginForm.module.scss'
+import clsx from 'clsx';
 
 interface ILoginFormInputs {
   email: string;
@@ -11,35 +13,33 @@ interface ILoginFormInputs {
 }
 
 const LoginForm = () => {
-  const [error, setError] = useState<string | null>(null);
-  const { register, handleSubmit, formState: { errors } } = useForm<ILoginFormInputs>({
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const { register, handleSubmit, formState: { errors: formError} } = useForm<ILoginFormInputs>({
     resolver: yupResolver(schema),
   });
 
   const onSubmit = async (data: ILoginFormInputs) => {
     try {
       await AuthService.login(data.email, data.password);
-      setError(null);
+      setLoginError(null);
     } catch (error) {
-      setError("Invalid email or password");
+      setLoginError("Invalid email or password");
       console.error(error)
     }
   };
 
   return (
-    <div className="panel">
-        <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-            <label>Email</label>
-            <input {...register("email")} type="email" />
-            <p>{errors.email?.message}</p>
+    <div className={clsx('panel', styles.wrapper)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <div className={styles.flexField}>
+            <input {...register("email")}  placeholder="Enter email..." type="email" />
+            <p className={styles.error}>{formError.email?.message}</p>
         </div>
-        <div>
-            <label>Password</label>
-            <input {...register("password")} type="password" />
-            <p>{errors.password?.message}</p>
+        <div className={styles.flexField}>
+            <input {...register("password")} placeholder="Enter password..." type="password" />
+            <p className={styles.error}>{formError.password?.message}</p>
         </div>
-        {error && <p>{error}</p>}
+        {loginError && <p className={styles.error}>{loginError}</p>}
         <button type="submit">Login</button>
         </form>
     </div>

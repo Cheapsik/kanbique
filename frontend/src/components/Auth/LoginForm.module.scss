@@ -1,0 +1,25 @@
+.wrapper {
+    height: 50%;
+    width: 25rem
+}
+
+.form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+}
+
+.field {
+    flex: 1;
+}
+
+.flexField {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.error {
+    color: red;
+    margin: 0;
+    //TODO: import variable
+}

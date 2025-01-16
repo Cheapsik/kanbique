@@ -1,24 +1,92 @@
-$primary-gradient-start: #2A2E45;
-$primary-gradient-end: #4A3F72;
-$accent-color: #D8A31E;
+$primary-light: #F6F4D9;
+$primary-medium: #A8D8F0;
+$primary-dark: #D8A9D6;
 
-$background-color: #1E1E2F;
-$surface-color: #2C2C3D;
-$text-color-primary: #E0E0E0;
-$text-color-secondary: #A5A5B0;
+$border-color: #cecfd0;
 
-$hover-active-color: #3B8F7A;
+$background-color: #FBFAEF;
+$surface-color: #E3F2F8;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+$text-color-primary: #333333;
+$text-color-secondary: #555555;
 
-html {
-    font-size: 62,5%;
-}
+$hover-active-color: #B7E2C2;
+$neutral-color: #D3D3D3;
+$success-color: #A7D4B6;
+$warning-color: #F7D38C;
+$error-color: #F5A4A4;
+
+$primary-gradient: linear-gradient(135deg, #F6F4D9 0%, #A8D8F0 50%, #D8A9D6 100%);
 
 body {
-    background: linear-gradient(90deg, $primary-gradient-start, $primary-gradient-end);
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    background: $primary-gradient;
+    color: $text-color-primary;
+    font-family: 'Arial', sans-serif;
+    color: $text-color-primary;
+    overflow: hidden;
+}
+
+input {
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    border: .1rem solid $border-color;
+}
+
+button {
+  background-color: white;
+  color: $text-color-primary;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+
+  &:hover {
+    background: $hover-active-color;
+    transition: .2s ease-in-out;
+  }
+
+  &:active {
+    transform: scale(0.97);
+    transition: .2s ease-in-out;
+  }
+}
+
+.panel {
+  background: rgba( 255, 255, 255, 0.6 );
+  padding: 1.5rem;
+  border-radius: .6rem;
+  box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur( 1.5rem );
+}
+
+.text-secondary {
+  color: $text-color-secondary;
+}
+
+.link {
+  color: $primary-dark;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.alert-success {
+  background-color: $success-color;
+  color: $text-color-primary;
+}
+
+.alert-warning {
+  background-color: $warning-color;
+  color: $text-color-primary;
+}
+
+.alert-error {
+  background-color: $error-color;
+  color: $text-color-primary;
 }
