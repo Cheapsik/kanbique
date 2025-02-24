@@ -5,3 +5,48 @@
     justify-content: center;
     margin-top: 10%;
 }
+
+.panelsContainer {
+    position: relative;
+    width: 25rem;
+    height: 50%;
+    overflow: hidden;
+}
+
+.panel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s ease-in-out;
+    top: 20%;
+    left: 0;
+    padding-right: 5rem;
+}
+
+.activeButton {
+    background-color: #B7E2C2;
+}
+
+.formSwitch {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform .6s ease-in-out;
+
+    button {
+        width: 5rem;
+        height: 2rem;
+        padding: 0;
+        border-radius: 0;
+
+        &:nth-child(1) {
+            border-radius: .4rem 0 0 .4rem;
+        }
+        &:nth-child(2) {
+            border-radius: 0 .4rem .4rem 0;
+        }
+    }
+}

@@ -10,7 +10,8 @@ $surface-color: #E3F2F8;
 $text-color-primary: #333333;
 $text-color-secondary: #555555;
 
-$hover-active-color: #B7E2C2;
+$active-color: #B7E2C2;
+$hover-active-color: #AAD9B6;
 $neutral-color: #D3D3D3;
 $success-color: #A7D4B6;
 $warning-color: #F7D38C;
@@ -23,7 +24,6 @@ body {
     min-height: 100vh;
     max-height: 100vh;
     background: $primary-gradient;
-    color: $text-color-primary;
     font-family: 'Arial', sans-serif;
     color: $text-color-primary;
     overflow: hidden;
@@ -89,4 +89,41 @@ button {
 .alert-error {
   background-color: $error-color;
   color: $text-color-primary;
+}
+
+.gradient-logo {
+  position: relative;
+  font-size: 2rem;
+  font-weight: bold;
+  color: whitesmoke;
+  display: inline-block;
+  animation: moveGradient 5s linear infinite;
+
+  &::before {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      color: transparent;
+      -webkit-text-stroke: 2.5px transparent;
+      background: linear-gradient(135deg, #FFD700 0%, #00BFFF 50%, #FF69B4 100%);
+      -webkit-background-clip: text; 
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 200%;
+      animation: moveGradient 4s linear infinite;
+  }
+}
+
+@keyframes moveGradient {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
 }
